@@ -1,0 +1,60 @@
+## connect vpn
+alias vpncon='sudo openconnect --background --quiet --pid-file=/var/run/openconnect.pid --user=s322414 --authgroup=Zugriff vpngw.uni-wuerzburg.de'
+## disconnect vpn
+alias vpndis='sudo kill -s SIGQUIT `ps aux | grep openconnect | grep -v grep | cut -c 10-15`'
+## convert nef to jpeg
+alias nef2jpg='ufraw-batch --out-type=jpeg --out-path=./ ./*.NEF'
+alias top='htop'
+alias df='pydf'
+alias mocp='mocp -T darkdot_theme'
+alias octave='octave --no-gui'
+alias vlc='vlc --intf dummy'
+alias weather='curl wttr.in/Karsbach'
+alias moon='curl wttr.in/Moon'
+alias rr='rm -r'
+alias mpv='mpv --aid 2'
+alias cp='cp -vi'
+
+## compile and run a source file
+car() {
+	if [[ $# == 0 ]]; then
+		echo no argument given
+	fi
+	bin="${1%.*}"
+	src=$1
+	case ${1#*.} in
+		c)
+			gcc -o $bin $src
+			$PWD/$bin
+			;;
+		cpp)
+			g++ -o $bin $src
+			$PWD/$bin
+			;;
+	esac
+}
+
+rmbak() {
+
+	backup_dir=$HOME/.rmbak
+	
+	if [[ $# == 0 ]]; then
+		cat<<EOH
+rmbak: missing operand
+Try 'rmbak --help' for more information
+EOH
+		return 1
+	fi
+
+	if [[ ! -d $backup_dir ]]; then
+		mkdir -p $backup_dir
+	fi
+
+	for file in $*; do
+		if [[ -a $file ]]; then
+			mv $file $backup_dir/$file_$(date --utc +%FT%TZ)
+		else
+			echo 'rmbak: cannot stat '$file'; No such file or directory'
+		fi
+	done
+}
