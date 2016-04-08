@@ -6,11 +6,26 @@ this shall be a summary of my personal `i3`, `i3bar`, `xinit` etc config files t
 If you like something you see feel free to use it, if you see something you don't, feel free to comment
 and suggest changes. And never forget to have fun!
 
+***
+
+# Prerequisitse
+
+## i3
+
+`i3`is a dynamic tiling window manager for X-Server. To install `i3` on Arch Linux run
+```shell
+  sudo pacman -S i3
+```
+Enable `i3` by adding following to your `~/.xinitrc`
+```shell
+  exec i3
+```
+
+`i3status` is the most common tool to get system information to your panel. I use `i3blocks` to have different colours for each entry e. g. cpu usage
+
 ## i3blocks
 
-`i3blocks` config is derived from http://kumarcode.com/Colorful-i3/
-
-I use i3blocks for my i3bar so I have coloured output. For installation on Arch Linux from AUR use
+For installation on Arch Linux from `AUR` run
 ```shell
   yaourt -S i3blocks.
 ```
@@ -18,11 +33,19 @@ For the Icons download the ttf files and copy them to
 ```shell
   cp *.ttf ~/.local/share/fonts
 ```
-To reload fonts
+and finally reload fonts
 ```shell
   fc-cache -fv
 ```
 
 ## zsh
 
-for the configuration of zshrc see https://github.com/robbyrussell/oh-my-zsh
+`Zsh` is a powerful shell that operates as both an interactive shell and as a scripting language interpreter. It offers many advantages such as:
+
+- Efficiency
+- Improved tab completion
+- Improved globbing
+- Improved array handling
+- Full customisability
+
+The good part is you don't habe to configure zsh from scratch for the configuration of zshrc see [oh-my-zsh] (https://github.com/robbyrussell/oh-my-zsh)
