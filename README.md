@@ -48,4 +48,9 @@ and finally reload fonts
 - Improved array handling
 - Full customisability
 
-The good part is you don't habe to configure zsh from scratch for the configuration of zshrc see [oh-my-zsh] (https://github.com/robbyrussell/oh-my-zsh)
+The good part is you don't have to configure zsh from scratch for the configuration of zshrc see [oh-my-zsh] (https://github.com/robbyrussell/oh-my-zsh)
+
+
+## screenshot
+
+![roarvo i3-config](https://raw.github.com/Soundsphere/i3-config/master/Screenshot2016-04-0711:58:00.png "roarvo i3-config")
