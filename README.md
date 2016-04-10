@@ -7,6 +7,8 @@ If you like something you see feel free to use it, if you see something you don'
 and suggest changes. And never forget to have fun!
 
 ***
+![roarvo i3-config](https://raw.github.com/roarvo/i3-config/master/Screenshot2016-04-0711:58:00.png "roarvo i3-config")
+***
 
 # Prerequisitse
 
@@ -48,4 +50,4 @@ and finally reload fonts
 - Improved array handling
 - Full customisability
 
-The good part is you don't habe to configure zsh from scratch for the configuration of zshrc see [oh-my-zsh] (https://github.com/robbyrussell/oh-my-zsh)
+The good part is you don't have to configure zsh from scratch for the configuration of zshrc see [oh-my-zsh] (https://github.com/robbyrussell/oh-my-zsh)
