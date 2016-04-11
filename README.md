@@ -7,7 +7,7 @@ If you like something you see feel free to use it, if you see something you don'
 and suggest changes. And never forget to have fun!
 
 ***
-![roarvo i3-config](https://raw.github.com/roarvo/i3-config/master/Screenshot2016-04-0711:58:00.png "roarvo i3-config")
+![roarvo i3-config](https://raw.github.com/roarvo/i3-config/master/Screenshot.png "roarvo i3-config")
 ***
 
 # Prerequisitse
@@ -25,11 +25,11 @@ Enable `i3` by adding following to your `~/.xinitrc`
 
 `i3status` is the most common tool to get system information to your panel. I use `i3blocks` to have different colours for each entry e. g. cpu usage
 
-## i3blocks
+## conky
 
 For installation on Arch Linux from `AUR` run
 ```shell
-  yaourt -S i3blocks.
+  sudo pacman -S conky
 ```
 For the Icons download the ttf files and copy them to
 ```shell
@@ -38,6 +38,19 @@ For the Icons download the ttf files and copy them to
 and finally reload fonts
 ```shell
   fc-cache -fv
+```
+
+### set up conky in i3
+
+copy `conky` to your i3 folder i. e. `.i3/` or in my case I have stored everything in `.config/i3/`
+
+to enable `conky` in `i3bar` include the following into your i3 config in the section for bar`.config/i3/config`
+```shell
+	bar {
+		...
+		status_command $HOME/.config/i3/conky
+		...
+	}
 ```
 
 ## zsh
