@@ -49,9 +49,11 @@ TEXT
   ${if_up tun0}"\#d7df01"${else}"\#ff4100"${endif} },
   { "full_text" : "${downspeedf enp3s0} KiB/s ${upspeedf enp3s0} KiB/s" ,
   "color" : "\#b344b3"},
-  { "full_text" : " ${loadavg 1} ${loadavg 2} ${loadavg 3}" , "color" :
-  "\#44b6af"},
+  { "full_text" : " ${loadavg 1} " , "color" : ${if_match ${loadavg 1}>=4.0}"\#ff392d"${else}"\#44b6af"${endif} , "separator":false},
+  { "full_text" : "${loadavg 2} " , "color" :  ${if_match ${loadavg 2}>=4.0}"\#ff392d"${else}"\#44b6af"${endif} , "separator":false},
+  { "full_text" : "${loadavg 3}" , "color" :  ${if_match ${loadavg 3}>=4.0}"\#ff392d"${else}"\#44b6af"${endif}},
   { "full_text" : "RAM ${memperc}%" , "color" :
     ${if_match ${memperc}<90}"\#88b644"${else}"\#93f300"${endif} },
-  { "full_text" : "${if_match ${exec amixer get Master -M | grep Left | grep -oE "off"}=="off"}: 0${else} : ${exec amixer get Master -M | grep Left | grep -oE "[[:digit:]]*%"}${endif}" , "color" : "\#5676ff"},
-  { "full_text" : " ${time %T %d.%m.%C%y}" , "color" : "\#906eff"} ],
+  { "full_text" : "${if_match "${exec amixer get Master -M | grep Left | grep -oE "off"}"=="off"}: 0${else} : ${exec amixer get Master -M | grep Left | grep -oE "[[:digit:]]*%"}${endif}" , "color" : "\#5676ff"},
+  { "full_text" : " ${time %d.%m.%C%y}" , "color" : "\#906eff"},
+  { "full_text" : " ${time %T}" , "color" : "\#b33aa1"} ],
