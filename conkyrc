@@ -1,0 +1,57 @@
+out_to_x no
+own_window no
+out_to_console yes
+background no
+max_text_width 0
+
+# Update interval in seconds
+update_interval 2.0
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Shortens units to a single character (kiB->k, GiB->G, etc.). Default is off.
+short_units yes
+
+# How strict should if_up be when testing an interface for being up?
+# The value is one of up, link or address, to check for the interface
+# being solely up, being up and having link or being up, having link
+# and an assigned IP address. 
+if_up_strictness address
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+# use_spacer should have an argument of left, right, or none
+use_spacer none
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# Stuff after 'TEXT' will be formatted on screen
+TEXT
+
+# JSON for i3bar
+
+ [{ "full_text" : "${if_running mocp}$moc_song - $moc_artist $moc_album -$moc_timeleft${endif}" , "color"
+ : "\#ffffff"},
+  { "full_text" : ": $nodename - $sysname $kernel" , "color" : "\#1793d1" },
+  { "full_text" : "Up ${uptime_short}" , "color" : "\#ffd882" },
+  { "full_text" : "Cpu ${cpu cpu0}%" , "color" : "\#53ee69" },
+  { "full_text" : " ${acpitemp}%" , "color" : "\#ffa81e" },
+  { "full_text" : " ${mails}" , "color" : "\#8141c8" },
+  { "full_text" : ":${fs_free /}" , "color" : "\#c84155" },
+  { "full_text" : ":${fs_free /home}" , "color" : "\#41c87d" },
+  { "full_text" : " ${if_up tun0} VPN: yes${else}VPN: no$endif" , "color" :
+  ${if_up tun0}"\#d7df01"${else}"\#ff4100"${endif} },
+  { "full_text" : "${downspeedf enp3s0} KiB/s ${upspeedf enp3s0} KiB/s" ,
+  "color" : "\#b344b3"},
+  { "full_text" : " ${loadavg 1} ${loadavg 2} ${loadavg 3}" , "color" :
+  "\#44b6af"},
+  { "full_text" : "RAM ${memperc}%" , "color" :
+    ${if_match ${memperc}<90}"\#88b644"${else}"\#93f300"${endif} },
+  { "full_text" : "${if_match ${exec amixer get Master -M | grep Left | grep -oE "off"}=="off"}: 0${else} : ${exec amixer get Master -M | grep Left | grep -oE "[[:digit:]]*%"}${endif}" , "color" : "\#5676ff"},
+  { "full_text" : " ${time %T %d.%m.%C%y}" , "color" : "\#906eff"} ],
