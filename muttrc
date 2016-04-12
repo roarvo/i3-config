@@ -1,5 +1,5 @@
 # we don't want our password in cleartext so we get it from gpg
-source "gpg2 -dq $HOME/.pass.gpg |"
+source "gpg2 -dq $HOME/.mutt.gpg |"
 
 set editor=vim
 
@@ -14,7 +14,7 @@ set imap_check_subscribed
 ## POP3 setup
 # set pop_user=<user>@<mail>.com
 # set pop_pass=$my_pass
-# set pop_host=pop://$pop_user:$my_posteo@$my_pass.com:995
+# set pop_host=pop://$pop_user:$my_pass@<mail>.com:995
 
 set timeout=60
 set mail_check=600
