@@ -53,6 +53,31 @@ to enable `conky` in `i3bar` include the following into your i3 config in the se
 	}
 ```
 
+## configure gpg for mutt
+First create a pair of public/private keys:
+```shell
+	gpg --gen-key
+```
+Create a file in a **secure environment**
+```
+	~/.mutt
+	***
+	set my_pass = "<password>"
+```
+> Note: User defined variables **must** start with `my_`
+
+Now encrypt the file:
+```shell
+	gpg -e -r '<name>' ~/.mutt
+```
+> Note: <name> must match the given name in key creation
+
+You can now delete the file with cleartext password
+```shell
+	shred -xu ~/.mutt
+```
+`muttrc` is already set up right with `source ...` to load password, etc.
+
 ## zsh
 
 `Zsh` is a powerful shell that operates as both an interactive shell and as a scripting language interpreter. It offers many advantages such as:
