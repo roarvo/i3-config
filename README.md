@@ -68,7 +68,7 @@ Now encrypt the file:
 ```shell
 	gpg -e -r '<name>' ~/.mutt
 ```
-> Note: "<name>" must match the given name in key creation
+> Note: \<name\> must match the given name in key creation
 
 You can now delete the file with cleartext password
 ```shell
