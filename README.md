@@ -61,7 +61,7 @@ First create a pair of public/private keys:
 Create a file in a **secure environment**
 ```
 	~/.mutt
-	***
+***
 	set my_pass = "<password>"
 ```
 > Note: User defined variables **must** start with `my_`
@@ -70,7 +70,7 @@ Now encrypt the file:
 ```shell
 	gpg -e -r '<name>' ~/.mutt
 ```
-> Note: <name> must match the given name in key creation
+> Note: '<name>' must match the given name in key creation
 
 You can now delete the file with cleartext password
 ```shell
