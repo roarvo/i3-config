@@ -5,6 +5,8 @@ set editor=vim
 
 set my_name="<forename> <surname>"
 
+## IMAP setup
+
 set imap_user=<user>@<mail>.com
 set imap_pass=$my_pass
 set folder=imaps://imap.<mail>.com
@@ -15,35 +17,39 @@ set imap_check_subscribed
 # set pop_user=<user>@<mail>.com
 # set pop_pass=$my_pass
 # set pop_host=pop://$pop_user:$my_pass@<mail>.com:995
+#
+# NOTE: in case you want to use POP3, you have to change the user variable in 
+# set smtp_url 
 
 set timeout=60
 set mail_check=600
 
-## Send mail using smtp
+## SMTP setup
 
 set from = <user>@<mail>.com
 set use_from = yes
-set smtp_url=smtps://$pop_user:$my_pass@smtp.<mail>.com
+set smtp_url=smtps://$imap_user:$my_pass@smtp.<mail>.com
 set ssl_starttls = yes
 set ssl_force_tls = yes
 
-## if you want maildir set up
-# set mbox_type=Maildir
-# set spoolfile="~/.mail/"
-# set folder="~/.mail/"
-# set mask=".*"    # the default mask hides dotfiles and maildirs are dotfiles now.
-# set mask="!^\.[^.]"  # this line intentionally commented out
-# set record="+.Sent"
-# set postponed="+.Drafts"
-# 
-# mailboxes ! + `\
-# for file in ~/.mail/.*; do \
-# 	box=$(basename "$file"); \
-# 	if [ ! "$box" = '.' -a ! "$box" = '..' -a ! "$box" = '.customflags' \
-# 	-a ! "$box" = '.subscriptions' ]; then \
-# 		echo -n "\"+$box\" "; \
-#     fi; \
-# done`
-# 
-# macro index c "<change-folder>?<toggle-mailboxes>" "open a different folder"
-# macro pager c "<change-folder>?<toggle-mailboxes>" "open a different folder"
+# mutt manages maildir so read mail don't show up in conky after next getmail
+# call
+
+set mbox_type=Maildir
+set spoolfile="~/.mail/"
+set folder="~/.mail/"
+set mask="!^\.[^.]"
+set record="+.Sent"
+set postponed="+.Drafts"
+
+mailboxes ! + `\
+for file in ~/.mail/.*; do \
+	box=$(basename "$file"); \
+	if [ ! "$box" = '.' -a ! "$box" = '..' -a ! "$box" = '.customflags' \
+	-a ! "$box" = '.subscriptions' ]; then \
+		echo -n "\"+$box\" "; \
+    fi; \
+done`
+
+macro index c "<change-folder>?<toggle-mailboxes>" "open a different folder"
+macro pager c "<change-folder>?<toggle-mailboxes>" "open a different folder"
