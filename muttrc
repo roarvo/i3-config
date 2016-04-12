@@ -1,0 +1,49 @@
+# we don't want our password in cleartext so we get it from gpg
+source "gpg2 -dq $HOME/.pass.gpg |"
+
+set editor=vim
+
+set my_name="<forename> <surname>"
+
+set imap_user=<user>@<mail>.com
+set imap_pass=$my_pass
+set folder=imaps://imap.<mail>.com
+set spoolfile=+INBOX
+set imap_check_subscribed
+
+## POP3 setup
+# set pop_user=<user>@<mail>.com
+# set pop_pass=$my_pass
+# set pop_host=pop://$pop_user:$my_posteo@$my_pass.com:995
+
+set timeout=60
+set mail_check=600
+
+## Send mail using smtp
+
+set from = <user>@<mail>.com
+set use_from = yes
+set smtp_url=smtps://$pop_user:$my_pass@smtp.<mail>.com
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+## if you want maildir set up
+# set mbox_type=Maildir
+# set spoolfile="~/.mail/"
+# set folder="~/.mail/"
+# set mask=".*"    # the default mask hides dotfiles and maildirs are dotfiles now.
+# set mask="!^\.[^.]"  # this line intentionally commented out
+# set record="+.Sent"
+# set postponed="+.Drafts"
+# 
+# mailboxes ! + `\
+# for file in ~/.mail/.*; do \
+# 	box=$(basename "$file"); \
+# 	if [ ! "$box" = '.' -a ! "$box" = '..' -a ! "$box" = '.customflags' \
+# 	-a ! "$box" = '.subscriptions' ]; then \
+# 		echo -n "\"+$box\" "; \
+#     fi; \
+# done`
+# 
+# macro index c "<change-folder>?<toggle-mailboxes>" "open a different folder"
+# macro pager c "<change-folder>?<toggle-mailboxes>" "open a different folder"

@@ -31,6 +31,8 @@ override_utf8_locale no
 # set to 1 to disable averaging
 cpu_avg_samples 2
 
+mail_spool $HOME/.mail/new
+
 # Stuff after 'TEXT' will be formatted on screen
 TEXT
 
@@ -42,7 +44,7 @@ TEXT
   { "full_text" : "Up ${uptime_short}" , "color" : "\#ffd882" },
   { "full_text" : "Cpu ${cpu cpu0}%" , "color" : "\#53ee69" },
   { "full_text" : " ${acpitemp}%" , "color" : "\#ffa81e" },
-  { "full_text" : " ${mails}" , "color" : "\#8141c8" },
+  { "full_text" : " ${new_mails /home/rav/.mail}" , "color" : "\#8141c8" },
   { "full_text" : ":${fs_free /}" , "color" : "\#c84155" },
   { "full_text" : ":${fs_free /home}" , "color" : "\#41c87d" },
   { "full_text" : " ${if_up tun0} VPN: yes${else}VPN: no$endif" , "color" :

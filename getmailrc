@@ -1,0 +1,13 @@
+[retriever]
+type = SimplePOP3SSLRetriever
+server = pop.<mail>.com
+username = <user>@<mail>.com
+password = <password>
+port = 995
+
+[destination]
+type = Maildir
+path = ~/.mail/
+
+[options]
+read_all = False
