@@ -31,7 +31,7 @@ override_utf8_locale no
 # set to 1 to disable averaging
 cpu_avg_samples 2
 
-mail_spool $HOME/.mail/new
+mail_spool /home/rav/.mail/new
 
 # Stuff after 'TEXT' will be formatted on screen
 TEXT
@@ -49,10 +49,10 @@ TEXT
   { "full_text" : ":${fs_free /home}" , "color" : "\#41c87d" },
   { "full_text" : " ${if_up tun0} VPN: yes${else}VPN: no$endif" , "color" :
   ${if_up tun0}"\#d7df01"${else}"\#ff4100"${endif} },
-  { "full_text" : "${downspeedf enp3s0} KiB/s ${upspeedf enp3s0} KiB/s" ,
-  "color" : "\#b344b3"},
-  { "full_text" : " ${loadavg 1} " , "color" : ${if_match ${loadavg 1}>=4.0}"\#ff392d"${else}"\#44b6af"${endif} , "separator":false},
-  { "full_text" : "${loadavg 2} " , "color" :  ${if_match ${loadavg 2}>=4.0}"\#ff392d"${else}"\#44b6af"${endif} , "separator":false},
+  { "full_text" : "${downspeedf enp3s0} KiB/s ${upspeedf enp3s0} KiB/s" , "color" : "\#b344b3"},
+  { "full_text" : "" , "color" : "\#44b6af" , "separator" : false },
+  { "full_text" : "${loadavg 1} " , "color" : ${if_match ${loadavg 1}>=4.0}"\#ff392d"${else}"\#44b6af"${endif} , "separator" : false},
+  { "full_text" : "${loadavg 2} " , "color" :  ${if_match ${loadavg 2}>=4.0}"\#ff392d"${else}"\#44b6af"${endif} , "separator" : false},
   { "full_text" : "${loadavg 3}" , "color" :  ${if_match ${loadavg 3}>=4.0}"\#ff392d"${else}"\#44b6af"${endif}},
   { "full_text" : "RAM ${memperc}%" , "color" :
     ${if_match ${memperc}<90}"\#88b644"${else}"\#93f300"${endif} },

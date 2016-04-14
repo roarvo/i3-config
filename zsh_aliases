@@ -13,7 +13,24 @@ alias weather='curl wttr.in/Karsbach'
 alias moon='curl wttr.in/Moon'
 alias rr='rm -r'
 alias mpv='mpv --aid 2'
-alias cp='cp -vi'
+alias cp='rsync -P'
+alias printOdd='lpr -o page-set=odd'
+alias printEven='lpr -o page-set=even'
+
+mountIso() {
+	if [[ ${1#*.} == "iso" ]]; then
+		DIR=/run/media/$USER/$(basename $1 .iso)
+		sudo mkdir -p $DIR
+		sudo mount -o loop $1 $DIR 2>/dev/null && echo "$(basename $1) mounted on $DIR"
+	else
+		echo "mountIso only mounts iso"
+	fi
+}
+
+umountIso() {
+	sudo umount $1
+	sudo rmdir $1
+}
 
 ## compile and run a source file
 car() {
